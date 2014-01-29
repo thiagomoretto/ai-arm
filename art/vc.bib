@@ -1,0 +1,750 @@
+% Este arquivo contém um banco de referências bibliográficas na área 
+% de Visão Computacional
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DETECÇÃO DA DIREÇÃO DO OLHAR
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+@ARTICLE{WS01,
+    AUTHOR = "J. G. Wang and E. Sung",
+    TITLE = "Gaze determination via Images of Irises",
+    JOURNAL = "Image and Vision Computing",
+    VOLUME = "19",
+    NUMBER = "12",
+    PAGES = "891-911",
+    PUBLISHER = "Elsevier-Science",
+    MONTH = "October",
+    YEAR = "2001"
+ }
+	
+@article{ SYW97,
+  author = "R. Stiefelhagen and J. Yang and A. Waibel",
+  title = "Tracking Eyes and Monitoring Eye Gaze",
+  journal = "Proceedings of the Workshop on Perceptual User Interfaces (PUI'97).",
+  city = "Alberta",
+  pages = "98-100",
+  year = "1997",
+  url = "citeseer.nj.nec.com/stiefelhagen97tracking.html" }
+  
+  
+ @inproceedings{ Sib00,
+    author = "Linda E. Sibert and Robert J. K. Jacob",
+    title = "Evaluation of eye gaze interaction",
+    booktitle = "{CHI}",
+    pages = "281-288",
+    year = "2000",
+    url = "citeseer.nj.nec.com/article/sibert00evaluation.html" }
+    
+ @techreport{ GC94,
+    author = "A. H. Gee and R. Cipolla",
+    title = "Determining the Gaze of Face in Images",
+    number = "CUED/F-INFENG/TR 174",
+    institution = "Cambridge University",
+    address = "Trumpington Street, Cambridge CB2 1PZ, England",
+    year = "1994",
+    url = "citeseer.nj.nec.com/gee94determining.html" }
+    
+@article{ Jac95,
+  author = "R. Jacob",
+  title = "Eye tracking in advanced interface design",
+  journal = "In Barøeld,W. and Furness, T. (Eds.), Advanced Interface Design and Virtual Environments",
+  pages = "258-288",
+  publisher = "Oxford University Press",
+  city = "Oxford",
+  year = "1995",
+  url = "citeseer.nj.nec.com/jacob95eye.html" }
+  
+@article{ Sch95,
+  author = "B. Schiele and A. Waibel",
+  title = "Gaze tracking based on face-color",
+  journal = "In Proc. International Workshop on Automatic Face and Gesture Recognition",
+  pages = "344--349",
+  city = "Zurich",
+  year = "1995",
+  url = "citeseer.nj.nec.com/schiele95gaze.html" }  
+
+@inproceedings{ BP94, author = "Shumeet Baluja and Dean Pomerleau", 
+title = "Non-Intrusive Gaze Tracking Using Artificial Neural Networks", 
+booktitle = "Advances in Neural Information Processing Systems", 
+volume = "6", 
+publisher = "Morgan Kaufmann Publishers Inc.", 
+editor = "Jack D. Cowan and Gerald Tesauro and Joshua Alspector", 
+pages = "753--760", 
+year = "1994", 
+url = "citeseer.nj.nec.com/baluja94nonintrusive.html" }
+
+
+@inbook{ WM87,
+    author = "C. Ware and H. Mikaelian",
+    title = "An Evaluation of an Eye Tracker as a Device for Computer Input",
+    journal = "Human Factors in Computing Systems - IV",
+    publisher = "Elsevier",
+    year = "1987"}
+
+@article{ CB97,
+    author = "C. Colombo and A. D. Bimbo",
+    title = "Interacting through eyes",
+    journal = "Robotics and Autonomous Systems",
+    volume = "19",
+    pages = "359-368",
+    year = "1997"}
+    
+
+@article{ Por90,
+    author = "J. Porill",
+    title = "Fitting Ellipses and Predicting Confidence Envelopes using a Bias Corrected \mbox{Kalman} Filter",
+    journal = "Image and Vision Computing",
+    volume = "8",
+    number = "1",
+    pages = "37-41",
+    year = "1990"}    
+    
+@article{ Pil96,
+    author = "M. Pilu, A. Fitzgibbon and R. Fisher",
+    title = "Ellipse-specific Direct Least-square Fitting",
+    journal = "IEEE International Conference on Image Processing",
+    city = "Lausanne",
+    month = "September",
+    year = "1996"}    
+
+@article{ RC78,
+    author = "T. W. Ridler and S. Calvard",
+    title = "PIcture Thresholding Using an Iterative Selection Method",
+    journal = "IEEE transactions on Systems, Man and Cybernetics",
+    month = "August",
+    year = "1978"}    
+
+@book{Fu74,
+   author = "K. S. Fu",
+   title = "Syntatic Methods in Pattern Recognition",
+   publisher = "New York: Academic Press",
+   year = "1974" }
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DETECÇÃO DA REGIÃO DAS MÃOS E LINGUA DE SINAIS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+% Apresenta um algoritmo para detecção do centro da mão e das pontas dos
+% dedos apartir de imagens binarizadas obtidas através de câmeras de captura
+% de sinais infra-vermelhos
+
+@inproceedings{ sato00fast,
+  author = "Y. Sato and Y. Kobayashi and H. Koike",
+  title = "Fast Tracking of Hands and Fingertips in Infrared Images for Augmented
+    Desk Interface",
+  booktitle = "Fourth International Conference on Automatic Face- and Gesture-Recognition",
+  address = "Grenoble, France", 
+  year = "2000" }
+%  url = "citeseer.nj.nec.com/sato00fast.html" }
+
+
+
+% Descreve de uma maneira elegante os parâmetros que eu utilizei na
+% aprendizagem da direção do olhar e do sinal de mão (massa, centro de massa,
+% variância) e apresenta novos alternativas para parêmetros (Image Moments)
+% além de um hardware específico para extração dos mesmos (artificial retina).
+% Mostra aplicação da detecção das mãos em interfaces para jogos.
+@article{ freeman98computer,
+    author = "William T. Freeman and David B. Anderson and Paul A. Beardsley and Chris N. Dodge and Michal Roth and Craig D. Weissman and William S. Yerazunis and Hiroshi Kage and Kazuo Kyuma and Yasunari Miyake and Ken-ichi Tanaka",
+    title = "Computer Vision for Interactive Computer Graphics",
+    journal = "IEEE Computer Graphics and Applications",
+    volume = "18",
+    number = "3",
+    month = "\slash",
+    pages = "42--53",
+    year = "1998",
+    url = "citeseer.nj.nec.com/freeman98computer.html" }
+%    author = "William T. Freeman and David B. Anderson and Paul A. Beardsley and Chris N. Dodge and Michal Roth and Craig D. Weissman and William S. Yerazunis and Hiroshi Kage and Kazuo Kyuma and Yasunari Miyake and Ken-ichi Tanaka",
+
+% Television Control
+@inproceedings{freeman94television,
+   author = "W. T. Freeman and C. Weissman", 
+   title = "Television control by hand gestures", 
+   booktitle = "International Workshop on Automatic Face- and Gesture- Recognition, IEEE Computer Society", 
+   address = "Zurich, Switzerland", 
+   month = "June", 
+   year = "1995", 
+   pages = "179-183"} 
+
+% Game Control
+@inproceedings{freeman96games,
+   author = "W. T. Freeman and K. Tanaka and J. Ohta and K. Kyuma", 
+   title = "Computer vision for computer games", 
+   booktitle = "2nd International Conference on Automatic Face and Gesture Recognition", 
+   address = "Killington, VT, USA", 
+   year = "1996",
+   pages = "100-105"}
+
+
+% Descreve o quão complexa é a lingua dos sinais e critica cientistas
+% da computação por não abordarem o problema em toda a sua complexidade 
+% (apesar de relatarem estar trabalhando com lingua de sinais - e
+% não um pequeníssimo subconjunto das mesmas). Ressalta a ampla
+% utilização de contexto nas construções gestuais utilizadas em
+% linguas de sinais.
+
+@inproceedings{ braffort01research,
+    author = "Annelies Braffort",
+    title = "Research on Computer Science and Sign Language: Ethical Aspects",
+    booktitle = "Gesture Workshop",
+    pages = "1-8",
+    year = "2001",
+    url = "citeseer.nj.nec.com/braffort01research.html" }
+
+
+
+
+% Proposta de hand-tracking utilizando filtros de kalman e um
+% modelo geometrico tri-dimensional de mao humana baseado. 3 frames
+% por segundo para processamento (nao funciona em tempo-real).
+% Apresenta breve revisao de trabalhos correlatos em hand-tracking.
+% Modelosi 3D permitem utilizacao de tecnicas conhecidas para
+% estimativas nao lineares (estimation)
+@inproceedings{ stenger01b,
+author = {B. Stenger and P. S. Mendonça and R. Cipolla},
+title = {Model-Based Hand Tracking Using an Unscented Kalman Filter},
+booktitle = {Proc. British Machine Vision Conference},
+pages = {63--72},
+year = {2001},
+volume = {I},
+address = {Manchester, UK},
+month = {September},
+url = {citeseer.nj.nec.com/stenger01modelbased.html} }
+
+% Apresenta um banco de dados com mais 100Gb de trechos de vídeos mostrando
+% sentenças transmitidas através da lingua de sinais americana. 
+@inproceedings{ martinez02database,
+title = "Purdue \mbox{RVL-SLLL ASL} Database for Automatic Recognition of American Sign Language",
+author = "A.M. Martínez and R.B. Wilbur and R. Shay and A.C. Kak",
+booktitle = "Proc. IEEE International Conference on Multimodal Interfaces",
+year = "2002" } 
+
+% Justifica importancia de uma contrapartida de escrita para a lingua
+% dos sinais e um extensao XML para facilitar sua utilizacao
+% na internet. A lingua escrita defendida chama-se SignWriting.
+% A lingua escrita deve facilitar a recuperação das caracteristicas
+% especificas de linguas gestuais, como utilização do espaço e tempo.
+@inproceedings{ rocha03taln,
+author = "Ant\^{o}nio Carlos da Rocha Costa and Gracaliz Pereira Dimu",
+title = "SignWriting and SWML: Paving the Way to Sign Language Processing",
+booktitle = "Proc. of TALN 2003 - Traitement Automatique des Langues Naturelles",
+address = "Batz-sur-Mer, France",
+month = "June",
+volume = "2",
+pages = "193-202",
+year = "2003" } 
+
+
+% Exemplo em que hand-tracking pode ser utilizado, com referencias.
+% Aponta 3 abordagens: glove-base , machine-vision-based (with marks and
+% without marks). Software para reconhecimento dos sinais alfabéticos
+% da lingua árabe baseando em aprendizagem computacionais - neuro-fuzzy
+% networks. Atributos: 30 vetores partindo do centro de massa da
+% mão e atingindo as bordas (problemas com sinais que apresentam
+% contornos parecidos).
+
+@ARTICLE{omar01,
+author = "Omar Al-Jarrah and Alaa Halawani",
+title = "Recognition of gestures in Arabic sign language using neuro-fuzzy systems",
+journal = "Artificial Intelligence",
+volume = "133",
+month = "December",
+year = "2001",
+pages = "117-138",
+publisher = "Elsevier Science"}
+
+
+% Tecnicas de diferenciacao para separar fundo do alvo (maos em movimento):
+% diferenciando duas imagens em sequencia eh possivel detectar os pixels
+% que sofreram movimento. Propoe arquitetura para um sistema baseado
+% na deteccao de sinais visuais. Deteccao da mao usar cor de pele e
+% imagem chapada (normalizada) para minimizar efeito de incidencia
+% nao uniforme de luz. Fundo previamente gravado (problema com sombras).
+@inproceedings{ martin98active,
+  author = "J. Martin and V. Devin and J. Crowley",
+  title = "Active hand tracking",
+  booktitle = "In IEEE Third International Conference on Automatic Face and Gesture Recognition, FG '98",
+  address = "Nara, Japan",
+  month = "April",
+  year = "1998",
+  url = "citeseer.nj.nec.com/martin98active.html" }
+
+% 3D Mouse. Utilização da ultima imagem
+% para melhorar estimativas em relacao a imagem corrente.
+@techreport{ rehg93digiteyes,
+    author = "Jim Rehg and Takeo Kanade",
+    title = "DigitEyes: Vision-Based Human Hand Tracking",
+    number = "CMU TR CMU-CS-93-220",
+    institution = "Carnegie Mellon University",
+    year = "1993" }
+%    url = "citeseer.nj.nec.com/rehg93digiteyes.html" } 
+
+% ROI (region of interest) for sign language is different - affecting
+% compression techniques (face is ROI) for videoconferencing.
+% Typing is not as fast as sign (as fast as speach)
+@inproceedings{ schumeyer97region,
+  author = "R. Schumeyer and E. Heredia and K. Barner",
+  title = "Region of interest priority coding for sign language videoconferencing",
+  booktitle = "IEEE First Workshop on Multimedia Signal Processing",
+  pages = "531-536",
+  address = "Princeton",
+  year = "1997",
+  url = "citeseer.nj.nec.com/schumeyer97region.html" }
+
+@article{bellugi72comparison,
+  author="U. Bellugi and S. Fischer",
+  title="A comparison of sign language and spoken language",
+  journal="Cognition",
+  volume="1",
+  pages="173-200",
+  year="1972"
+}
+  
+% German sign language. Hidden Markov Models. 91.6% 100 lexicons.
+% Statistical Approach (HMM). Subject dependency.
+@inproceedings{ bauer99towards,
+    author = "Britta Bauer and Sonja Nie{\ss}en and Hermann Hienz",
+    title = "Towards an Automatic Sign Language Translation System",
+    booktitle = "Proceedings of the International Workshop on Physicality and Tangibility in Interaction: Towards New Paradigms for Interaction Beyond the Desktop",
+    address = "Siena, Italy",
+    year = "1999",
+    url = "citeseer.nj.nec.com/332584.html" }
+
+% CSL - Chinese Sign Language. Neural Networks (Simple Recurrent Network)  and HMM. Moviment epenthesis (transition between signs). Signer independent recognition. Lattice Viterbi search algorithm (used in speech recognition) - busca por sequencia de palavras mais provaveis.  Uses Datagloves (18 sensores) - forma da mao - 3 tracker: posicao, direcao do movimento (um em cada wrist e outro fixo, no fundo). Segment recall 87% - Overall 90%-92%. Metologia registered and unregistered users.
+% author = "Gaolin Fang and Wen Gao and Xilin Chen and Chunli Wang and Jiyong Ma",
+@inproceedings{ fang01signerindependent,
+    author = "Gaolin Fang and et al",
+    title = "Signer-Independent Continuous Sign Language Recognition Based on {
+SRN}/{HMM}",
+    booktitle = "Gesture Workshop",
+    pages = "76-85",
+    year = "2001",
+    url = "citeseer.nj.nec.com/502642.html" }
+
+% Detection of head nods and head shakes for ASL recognition. Exploit periodic rotation of this two signs. Deterministic. Nao usa aprendizagem - algoritmo derivado da observacao de sequencias geradas por parametros extraidos de um head-tracker.
+@inproceedings{ erdem-automatic,
+  author = "Ugur Murat Erdem and Stan Sclaroff",
+  title = "Automatic Detection of Relevant Head Gestures in American Sign Language
+    Communication",
+  booktitle = "Proceedings of the International Conference on Pattern Recognition - ICPR 2002",
+  month="August",
+  year = "2002",
+  address = "Québec, Canada",
+  url = "citeseer.nj.nec.com/508432.html" }
+
+% Australian Sign Language. Data Glove. FBNN.
+@inproceedings{vamplew92auslan,
+   author = "P. Vamplew and A. Adams",
+   year = "1992", 
+   title = "The \mbox{SLARTI} system:  Applying artificial neural networks to sign language recognition",
+   booktitle = "Proceedings of Virtual Reality and Disabilities",
+   pages = "71-80",
+   address = "Northridge, USA"}
+
+% Defesa do bilinguismo em oposicao ao oralismo.
+@book{ schirmer94bilingue,
+   author="Schirmer, B.",
+   year = "1994",
+   title = "Language and literacy development in children who are deaf",
+   address = "New York, NY",
+   publisher = "Macmillan Publishing Co"}
+ 
+% Defesa do bilinguismo em oposicao ao oralismo.
+@article{ wolkomir92bilingue, 
+  author = "Wolkormir R.",
+  year = "1992",
+  title = "American Sign Language: It's not mouth stuff -- it's brain stuff",
+  journal = "Smithsonian",
+  volume = "23",
+  number = "4",
+  pages = "30-41" }
+
+@InBook{bencie01multilingual,
+author = {Bencie Woll and Rachel Sutton-Spence and Frances Elton},
+title = {The Sociolinguistics of Sign Languages},
+chapter = {Multilingualism - the global approach to sign languages},
+publisher = {Cambridge University Press},
+year = {2001},
+address = {Cambridge, UK},
+month = {October},
+}
+
+% Vision-based. Bom survey de metodos.
+@inproceedings{bretzner02multiscale,
+   title = "Hand Gesture Recognition using Multi-Scale Colour Features, Hierarchical Models and Particle Filtering",
+   author = "L.Bretzner and I.Laptev and T.Lindeberg", 
+   booktitle = "Proceedings of the Fifth IEEE International Conference on Automatic Face and Gesture Recognition (FGR'02)", 
+   pages = "423-428", 
+   address = "Washington, USA",
+   month = "may",
+   year = "2002"} 
+
+% Using marks
+@inproceedings{davis94marks,
+  author = "J. Davis and M. Shah",
+  title = "Recognizing hand gestures",
+  booktitle = "Proceedgins of the Third European Conference on Computer Vision (ECCV)", 
+  pages = "331-340", 
+  address = "Stockholm, Sweden",
+  month = "May",
+  year = "1994"}
+
+% ASL, HMM
+@inproceedings{ vogler97adapting,
+  author = "C. Vogler and D. Metaxas",
+  title = "Adapting Hidden \mbox{Markov} models for \mbox{ASL} recognition by using three-dimensional computer vision methods",
+  booktitle = "Proceedings of the IEEE International Conference on System, Man and Cybernetics",
+  address = "Orlando, USA",
+  pages = "156-161",
+  month = "October",
+  year = "1997"}
+
+% Tecnicas para extracao de regioes
+% da pele usando cor da pele (mostra diversas) - Skin segmentation.
+% Boa revisao de HMM. Mostra as
+% fases de um sistema de reconhecimento. 
+@inproceedings{kapuscinski01hands,
+  title = "Hand gesture recognition for man-machine interaction",
+  author = "T.  Kapuscinski  and  Wysocki", 
+  booktitle = "Proceedings of the Second International Workshop on Robot Motion and Control", 
+  pages = "91-96", 
+  address = "Bukowy Dworek, Poland",
+  year = "2001" }
+
+@inproceedings{martin97pca,
+  author = "J. Martin and J. L. Crowley",
+  title = "An appearance-based approach to gesture recognition",
+  booktitle = "Proc. of 9th Int. Conf. on Image Analysis and Processing",
+  address = "Florence, Italy",
+  year = "1997" }
+
+@inproceedings{triesch96graph,
+  author = "J. Triesch and C. von der Malsburg",
+  title = "Robust Classifications of Hand Postures Against Complex Backgrounds",
+  booktitle = "Proc. of the 2nd Int. Conf. on Automatic Face and Gesture Recognition",
+  address = "Killington, Vermont",
+  year = "1996" }
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% SEGMENTAÇÃO DE PELE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+@ARTICLE{GSE02,
+    AUTHOR = "G. Gomez and M. Sanchez and L. Enrique Sucar",
+    TITLE = "On Selecting an Appropriate Colour Space for Skin Detection",
+    JOURNAL = "MICAI 2002: Advances in Artificial Intelligence, Second Mexican
+               International Conference on Artificial Intelligence. Lecture Notes in Artificial Intelligence",
+    CITY = "Merida,Yucatan, Mexico",
+    PAGES = "69-78",
+    PUBLISHER = "Elsevier-Science",
+    YEAR = "2002"
+ }
+
+@inproceedings{Zarit99,
+ author = {Benjamin D. Zarit and Boaz J. Super and Francis K. H. Quek},
+ title = {Comparison of Five Color Models in Skin Pixel Classification},
+ booktitle = {RATFG-RTS '99: Proceedings of the International Workshop on Recognition, Analysis, and Tracking of Faces and Gestures in Real-Time Systems},
+ year = {1999},
+ isbn = {0-7695-0378-0},
+ pages = {58},
+ publisher = {IEEE Computer Society}
+ }
+
+
+@inproceedings{Yang99,
+ author = {M. Yang and N. Ahuja},
+ title = {Gaussian Mixture Model for Human Skin Color and Its Application in Image and Video Databases},
+ booktitle = {Proceedings of the SPIE Conference on Storage and Retrieval for Image and Video Databases},
+ year = {1999},
+ volume = {3656},
+ pages = {458-466}
+ }
+
+
+@inproceedings{Vezh03,
+  author = "V. Vezhnevets and V. Sazonov and A. Andreeva",
+  title = "A survey on pixel-based skin color detection techniques",
+  booktitle = "Proceedings of Graphicon-2003",
+  pages = {85-92},
+  address = {Moscou, Rússia},
+  year = "2003"
+}
+
+
+@inproceedings{Terr00,
+  author    = {Jean-Christophe Terrillon and
+               Hideo Fukamachi and
+               Shigeru Akamatsu and
+               Mahdad Nouri Shirazi},
+  title     = {Comparative Performance of Different Skin Chrominance Models
+               and Chrominance Spaces for the Automatic Detection of Human
+               Faces in Color Images.},
+  booktitle = {IEEE International Conference on Automatic Face and
+               Gesture Recognition},
+  year      = {2000},
+  pages     = {54-63},
+  ee        = {http://doi.ieeecomputersociety.org/10.1109/AFGR.2000.840612},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+% Técnicas Estatísticas Avançadas para Detecção de Pele:
+% HMM, FOM, BP
+@inproceedings{Jedynak03,
+ author = {Bruno Jedynak and Huicheng Zheng and Mohamed Daoudi},
+ title = {Statistical Models for Skin Detection},
+ booktitle = {Proceedings of Conference on Computer Vision and Pattern Recognition},
+ year = {2003},
+ pages = {92--97},
+ publisher = {IEEE Computer Society}
+}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 	TRANSFORMADAS DE HOUGH
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@inproceedings{hough59,
+    author = "P. V. C. Hough",
+    title = "Machine Analysis of Bubble Chamber Pictures",
+    booktitle = "Proceedings of the 16th International Conference on High Energy Accelerators and Instrumentation",
+    year = "1959"}
+	
+
+@article{kimme75,
+ author = {Carolyn Kimme and Dana Ballard and Jack Sklansky},
+ title = {Finding circles by an array of accumulators},
+ journal = {Commun. ACM},
+ volume = {18},
+ number = {2},
+ year = {1975},
+ issn = {0001-0782},
+ pages = {120--122},
+ doi = {http://doi.acm.org/10.1145/360666.360677},
+ publisher = {ACM Press},
+ }
+
+@article{ hough62,
+    author = "P. V. C. Hough",
+    title = "Methods and Means for Recognizing Complex Patterns",
+    journal = "U.S. Patent 3.069.654",
+    year = "1962" }
+
+@article{ grimson90sensitivity,
+    author = "W. Eric L. Grimson and Daniel P. Huttenlocher",
+    title = "On the Sensitivity of the Hough Transform for Object Recognition",
+    journal = "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+    volume = "PAMI-12",
+    number = "3",
+    pages = "255--274",
+    year = "1990",
+    url = "citeseer.ist.psu.edu/article/grimson90sensitivity.html" }
+
+	
+@article{ Mcl98,
+    author = "McLaughlin, R. A.",
+    title = "Randomized Hough Transform: Improved Ellipse Detection with Comparison",
+    journal = "Pattern Recognition Letters",
+    volume = "19",
+    number = "3",
+    pages = "299-305",
+    year = "1998",
+    url = "citeseer.nj.nec.com/mclaughlin98randomized.html" }
+	
+
+
+	
+@inproceedings{ toennies2002,
+    author = "Klaus Toennies and Frank Behrens and Melanie Aurnhammer",
+    title = "Feasibility of Hough-Transform-Based Iris Localisation for Real-Time-Application",
+    booktitle = "Proceedings of the 16th International Conference on Pattern Recognition (ICPR'02)",
+    volume = "2",
+    number = "1",
+    pages = "299-305",
+    year = "1998",
+    url = "citeseer.nj.nec.com/mclaughlin98randomized.html" }
+	
+	
+
+@Article{storkey2003,
+     author    = "Storkey, A. J. and Hambly, N. C. and Williams, C. K. I. and
+                  Mann, Robert G.",
+     title     = "Cleaning sky survey databases using Hough Transform and
+                  Renewal String approaches",
+     journal   = "Mon. Not. Roy. Astron. Soc.",
+     volume    = "347",
+     year      = "2004",
+     pages     = "36",
+     eprint    = "astro-ph/0309565",
+     SLACcitation  = "%%CITATION = ASTRO-PH 0309565;%%"
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LIBRAS E WEBLIBRAS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@book{capovilla01dic,  
+  author = "Fernando C. Capovilla and Walkiria D. Raphael",
+  title = "Dicion\'{a}rio Enciclop\'{e}dico Ilustrado Tril\'{i}ngue da L\'{i}ngua de Sinais Brasileira",
+  publisher = "Editora da Universidade de S\~{a}o Paulo",
+  year = "2001",
+  address = "S\~{a}o Paulo, Brasil"}
+
+% Artigo Sobre o site webLibras - Página Educacional para Aprendizagem da LIBRAS
+@inproceedings{marcato00weblibras,
+  author = "S. A. Marcato and H. V. da Rocha and M. C. M. P. Lima",
+  title = "O uso da Internet no Aprendizado da Língua de Sinais",
+  booktitle = "Anais do IBERDISCAP",  
+  address = "Madrid, Espanha", 
+  month = "October",
+  year = "2000"}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LIVROS TEXTO NAS ÁREAS DE VISÃO COMPUTACIONAL E CORRELATAS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+@book{gonzales02,
+  title = "Digital Image Processing",
+  author = "Rafael C. Gonzalez and Richard E. Woods",
+  year = "2002",
+  publisher = "Addison-Wesley Pub. Co." }
+
+
+@book{forsyth03,
+  title = "Computer Vision: A Modern Approach",
+  author = "David A. Forsyth and Jean Ponce",
+  year = "2003",
+  publisher = "Prentice Hall",
+  city = "Upper Saddle River" }
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% RASTREAMENTO DE ANIMAIS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% EthoVision
+@article{spink2001,
+  title = "The EthoVision Video Tracking System - A Tool for Behavioral Phenotyping of Transgenic Mice",
+  author = "A. J. Spink and R. A. J. Tegelenbosch and M.O.S. Buma and L.P.J.J. Noldus", 
+  year = "2001",
+  journal = "Physiology \& Behavior",
+  volume = "73",
+  publisher = "Elsevier",
+  pages = "731-744" }
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% DETECÇÃO DE DEFEITOS EM COURO E TECIDO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@inproceedings{krastev2004,
+  title = "Leather Features Selection for Defects' Recognition using Fuzzy Logic",
+  author = "K. Krastev and L. Georgieva and N. Angelov", 
+  booktitle = "Proceedings of the Int. Conf. on Computer Systems and Technologies - CompSysTech'2004", 
+  pages = "51-56", 
+  address = "Rousse, Bulgaria",
+  year = "2004" }
+
+
+% Mostra uma aplicação na detecção de defeitos em tecidos.
+@article{amet00,
+  author    = {A. Latif-Amet and
+               A. Ert{\"u}z{\"u}n and
+               A. Er\c{c}il},
+  title     = {An efficient method for texture defect detection: sub-band
+               domain co-occurrence matrices.},
+  journal   = {Image and Vision Computing},
+  volume    = {18},
+  number    = {6-7},
+  year      = {2000},
+  pages     = {543-553},
+  ee        = {http://dx.doi.org/10.1016/S0262-8856(99)00062-1},
+  bibsource = {DBLP, http://dblp.uni-trier.de}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APLICAÇÕES GERAIS NA ÁREA DE VISÃO COMPUTACIONAL
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Navegação Robótica
+@article{desouza2002,
+  author    = {Guilherme N. de Souza and Avinash C. Kak},
+  title     = {Vision for Mobile Robot Navigation: A Survey},
+  journal   = {IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  volume    = {24},
+  number    = {2},
+  year      = {2002},
+  pages     = {237-267}
+}
+
+
+% Dezenas de aplicações de visão e robótica.
+@book{bill2000,
+   author = "J. Billingsley",
+   title = "Mechatronics and Machine Vision",
+   publisher = "Bristol: IOP",
+   year = "2000" }
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APLICATIVOS, FERRAMENTAS E PACOTES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@article{abramoff2004,
+  author    = {M. D. Abramoff and P. J. Magelhaes and S. J. Ram},
+  title     = {Image Processing with ImageJ},
+  journal   = {Biophotonics International},
+  volume    = {11},
+  number    = {7},
+  year      = {2004},
+  pages     = {36-42}
+}
+

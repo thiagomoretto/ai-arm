@@ -1,0 +1,31 @@
+Braço Robótico Guiado Por IA
+============================
+
+Versão Parcial.
+
+1. Requisitos mínimos:
+1.1. Java Runtime Envinronment <= 1.5.0
+1.2. Apache ANT (Necessária para compilação e criação do pacote).
+1.3. Java3D API >= 1.5.0 (Instalado na JRE).
+
+1. Executando.
+=============
+
+1.1. Com auxílio do ANT
+
+	$ ant run
+
+1.2. Sem auxíliodo ANT
+
+	Testes unitários:
+	$ sh testcases
+
+	Parte gráfica:
+	$ java -classpath lib/junit-4.0.jar:lib/braco-0.5.jar ia.gui3d.Toolbox
+	ou
+	$ sh toolbox
+
+2. Compilando
+=============
+
+	$ ant

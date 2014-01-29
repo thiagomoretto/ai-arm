@@ -1,0 +1,77 @@
+@inproceedings{yun06wsc,
+ author = {Ilsoo Yun and Byungkyu "Brian" Park},
+ title = {Application of stochastic optimization method for an urban corridor},
+ booktitle = {WSC '06: Proceedings of the 37th conference on Winter simulation},
+ year = {2006},
+ isbn = {1-4244-0501-7},
+ pages = {1493--1499},
+ location = {Monterey, California},
+ publisher = {Winter Simulation Conference},
+ }
+
+@inproceedings{ carson97simulation,
+    author = "Yolanda Carson and Anu Maria",
+    title = "Simulation Optimization: Methods and Applications",
+    booktitle = "Winter Simulation Conference",
+    pages = "118-126",
+    year = "1997",
+    url = "citeseer.ist.psu.edu/carson97simulation.html"
+ }
+
+@inproceedings{vaziri05wsc,
+ author = {Kabeh Vaziri and Linda K. Nozick and Mark A. Turnquist},
+ title = {Resource allocation and planning for program management},
+ booktitle = {WSC '05: Proceedings of the 37th conference on Winter simulation},
+ year = {2005},
+ isbn = {0-7803-9519-0},
+ pages = {2127--2135},
+ location = {Orlando, Florida},
+ publisher = {Winter Simulation Conference},
+ }
+
+@inproceedings{bowei04www,
+ author = {Bowei Xi and Zhen Liu and Mukund Raghavachari and Cathy H. Xia and Li Zhang},
+ title = {A smart hill-climbing algorithm for application server configuration},
+ booktitle = {WWW '04: Proceedings of the 13th international conference on World Wide Web},
+ year = {2004},
+ isbn = {1-58113-844-X},
+ pages = {287--296},
+ location = {New York, NY, USA},
+ doi = {http://doi.acm.org/10.1145/988672.988711},
+ publisher = {ACM Press},
+ address = {New York, NY, USA},
+ }
+
+@book{norvig95,
+ author = {Stuart Russell and Peter Norvig},
+ title = {Artificial intelligence: A modern approach},
+ year = {1995},
+ isbn = {0-13-103805-2}
+}
+
+@article{korf95acm,
+ author = {Richard E. Korf},
+ title = {Space-efficient search algorithms},
+ journal = {ACM Comput. Surv.},
+ volume = {27},
+ number = {3},
+ year = {1995},
+ issn = {0360-0300},
+ pages = {337--339},
+ doi = {http://doi.acm.org/10.1145/212094.212120},
+ publisher = {ACM Press},
+ address = {New York, NY, USA},
+ }
+
+@inproceedings{100359,
+ author = {Jim Wang and Verlynda S. Dobbs and Henry W. Davis},
+ title = {Using focusing search algorithms and a strong heuristic to solve the findpath problem in robotics},
+ booktitle = {CSC '90: Proceedings of the 1990 ACM annual conference on Cooperation},
+ year = {1990},
+ isbn = {0-89791-348-5},
+ pages = {63--69},
+ location = {Washington, D.C., United States},
+ doi = {http://doi.acm.org/10.1145/100348.100359},
+ publisher = {ACM Press},
+ address = {New York, NY, USA},
+ }

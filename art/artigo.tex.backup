@@ -1,0 +1,152 @@
+\documentclass[12pt]{article}
+
+\usepackage[brazil]{babel}
+\usepackage{sbc-template}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx,url}
+\usepackage[latin1]{inputenc}  
+% \usepackage{vaucanson}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+% \usepackage{pstricks}
+
+\include{definicoes}
+
+\sloppy
+
+\title{Simulador de Braço Robótico guiado por algoritmos da Inteligência Artificial: Trabalhos iniciais}
+
+\author{Thiago Galves Moretto\inst{1}}
+
+\address{CCET - Centro de Ciências Exatas e da Terra\\
+         Universidade Católica Dom Bosco \\
+         Av. Tamandaré, 6000, Jardim Seminário \\
+         79117-900 Campo Grande, MS
+        \email{thiago@moretto.eng.br}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{resumo}
+Este trabalho aborda os primeiros detalhes e resultados de uma implementação de um simulador de braço robótico utilizando algoritmos da Inteligência Artificial para guiá-lo até um alvo.
+\end{resumo}
+
+\section{Introdução}
+O ser humano, desde quando nasce, tende a perceber e buscar informações de tudo o que esta a sua volta. Objetos, pessoas, tudo o que existe, é necessário criar um conhecimento sobre aquilo, é através da interação com o ambiente que isto é feito. Mas antes de tudo, o cérebro tem que desenvolver a capacidade de executar determinadas ações sobre o corpo do ser humano, como deslocar o braço, mover as pernas, desenvolver o equilíbrio para que possa ficar em pé, e outras séries de ações que são desenvolvidas ao longo do tempo e da exposição à experiências.
+
+O cérebro humano é uma máquina capaz de aprender quando exposto a desafios. Esta capacidade faz com que quando exposto a vários obstáculos e dificuldades, o cérebro, consiga, atráves de tentantivas, erros, e sucesso, alcançar seus objetivos. É neste contexto, que várias pesquisas são feitas, para que, seja possível construir um computador capaz de, sozinho, encarar os desafios do mundo real e resolvê-los com mais eficácia possível.
+
+Este trabalho, tem como objetivo, a implementação de algoritimos de Inteligência Artificial, para encontrar uma sequência de movimentos de um braço robótico na tentativa que buscar um alvo no ambiente em que se encontra. Na primeira fase do trabalho, foram implementadas buscas exaustivas e uma local. Abordaremos cada uma delas mais adiante. Em seguida, foi reaproveitado um código\footnote{Disponível em: http://www.frontiernet.net/~imaging/sourcecode/Human.java}, utilizando \textit{Java 3D}\footnote{Disponível em: http://java.sun.com/products/java-media/3D/}, que simula um homem no ambiente tri-dimensional.
+
+Na seção 2, explicaremos os objetivos gerais. Na seção 3, comentaremos os algoritmos implementados nesta fase. Na seção 4, abordaremos trabalhos correlatos que utilizam estes algoritmos na área de IA. Na seção 5, discutiremos sobre a implementação e na seção 6, temos as considerações finais.
+
+%O objetivo geral deste trabalho é a implementação de um braço robótico com
+%capacidade de encontrar, em um ambiente 3D, um objeto, ou meta, e realizar
+%movimentos em seus braços para tentar alcançar este objeto. Para isto, é
+%necessário implementar diversos algorimos de busca, e fazer com que, encontre
+%uma sequência de movimentos nas articulações do braço e esta sequência a leve
+%para a meta do problema, tocar o objeto. (esta um pouco informal)
+
+
+\section{Trabalhos Correlatos}
+
+Nesta seção descreveremos sobre alguns trabalhos relacionados ao tema. Várias áreas da computação são beneficiadas pelas técnicas desenvolvidas...
+
+Em \cite{yun06wsc}, propõe um método de otimização estocástica, utilizando três métodos, entre eles, \textit{Simulated Annealing}, para otimizar o tráfego sobre semáforos em um corredor urbano. Os experimentos realizados neste trabalho foi realizado sobre o CORSIM, um modelo de simulador de tráfego microoscópio\footnote{Disponível no site: http://mctrans.ce.ufl.edu/featured/TSIS/Version5/corsim.htm}.
+
+Em \cite{vaziri05wsc}, os autores propõe uma forma de alocar e agendar recursos e tarefas (de duração incerta) em vários projetos de maneira eficiente. Para isto, utiliza o método \textit{Simulated Annealing} para achar a melhor forma de alocar os recursos e que estes impençam o mínimo possível de que outras tarefas seja executadas por outros projetos, ou seja, busca um melhor planejamento entre projetos, recursos e tarefas. % Melhor, mas ta por ai.
+
+Uma variação do algoritmo \textit{Hill Climbing} e o método \textit{Simulated Anneling}, entre outros, é apresentada em \cite{bowei04www} para otimizar configurações de servidores de aplicações. Este trabalho apresente a implementação destes algoritmos para encontrar uma melhor configuração dos N-parâmetros que os servidores de aplicações possuem, por exemplo, memória, \textit{pool} de \textit{Threads}, tamanho de \textit{cache}, \textit{timeouts}, etc.
+
+Em \cite{korf95acm}, Korf expõe o problema do espaço em memória utilizado em métodos para satisfação de restrições e otimização em jogos por busca heurística e espaço de estados. Explica os problemas dos métodos \textit{A*}, da busca em largura e da busca em profundidade, propõe então como solução a utilização do \textit{Iterative Deepening Search} (Busca por aprofundamento iterativo).
+
+\section{Algoritmos de busca}
+
+Nesta seção apresentaremos uma breve introdução dos algoritmos de busca implementados nesta fase do trabalho.
+
+\subsection{Busca em Largura}
+
+A busca em largura consiste em uma busca em árvore. Inicialmente visitando a raíz e todos os seus vizinhos. Após isto, o mesmo processo é feito com os vizinhos, suscetivamente.
+
+A busca em largura não utiliza nenhuma heurística para definir o melhor caminho a seguir até a sua meta, por isto é chamada de busca exaustiva, pois, visita todos os nós possíveis até encontrar a solução.
+
+A sua variação com limitação, Busca em Largura Limitada, surge para limitar a busca e retonar falha caso não encontre a solução dentro desse limite.
+
+\subsection{Busca em Profundidade}
+
+Esta busca em árvore parte raíz e visita todos os seus ramos até encontrar um fim, e retrocede. Esta busca possui problemas, como entrar em \textit{'loop'} infinito, pois em algumas situações, pode haver ciclos.
+
+\subsection{Busca em Profundidade ou Largura Iterativa}
+
+A busca em profundidade ou largura iterativa é limite mas é sempre reiniciada quando esse limite é alcançado, incrementando em 1 esse limite.
+
+\subsection{\textit{Simulated Annealing} ou Têmpera Simulada}
+
+\textit{Simulated Annealing} é um método de busca estocástico análogo ao processo físico de resfriamento gradativo para a produção de cristais utilizando o mínimo de energia possível. O SA evita os mínimos locais (Hill Climbing) e tem como objetivo a buscar do mínimo global \cite{carson97simulation}. 
+
+\section{Implementação}
+
+A implementação do simulador foi feita utilizando a linguagem Java, para aproveitar a plataforma, que da suporte a utilização do simulador em vários sistemas operacionais, e para a utilização da biblioteca \textit{Java 3D}, que disponibiliza uma API alto-nível para a elaboração de ambientes 3D com suporte a vários tipos de objetos, comportamentos, iluminação, entre outras características prontas.
+
+A parte gráfica nesta fase do trabalho é simples, consiste em um menu, que ainda esta em implementação, com as opções de algoritmos a serem utilizados para resolver o problema do descolamento do braço robótico, estes algoritmos não estão disponíveis no menu. Há uma implementação em 3D de um homem (tronco, cabeça e membros superiores), com possibilidade de utilizar o mouse para rotacionar o ambiente.
+
+\begin{figure}
+	\centering
+	\label{fig:1}
+	\includegraphics[width=14.00cm,height=12.00cm,bb=0 0 992 757]{classes.eps}
+	\caption{Diagrama de classes representando o modelo de buscas do simulador}
+% classes.eps: 300dpi, width=8.40cm, height=6.41cm, bb=0 0 992 757
+\end{figure}
+
+Na \textbf{Figura 1} temos o diagrama de classes que representa o modelo de busca utilizado no simulador. A interface \textit{Search} é implementada pelos algoritmos de busca, que deve, ao término da busca, retornar o estado final, ou o valor nulo, caso haja um fracasso na busca.
+
+A interface \textit{State} é uma representação básica de um estado, e de acordo com cada problema ele pode ser extendido ou implementado de qualquer forma, desde que, implemente dois métodos, o \textit{parent} (Para ser possível realizar o caminho inverso) e o \textit{equals} (para comparar os estados). 
+
+Para o algoritmo \textit{SimulatedAnnealing} o modelo de estado (\textit{State}) é inadequado, é necessário que este modelo tenha informações relacionadas ao peso ou valor do estado, ou seja, cada estado precisa de um valor, da mesma forma que em uma função $y = f(x)$, cada valor de $x$ deva ter um valor $y$ correspondente - a imagem de $x$ pela função $f$. Para suprir essa necessidade, o modelo \textit{State} foi extendido pela classe abstrata \textit{SimulatedAnnelingState}, que implementa os métodos descritos pela interface \textit{State} e define dois novos métodos que devem ser implementados (métodos abstratos), \textit{getY} e \textit{produce} (a assinatura pode ser vista na \textbf{Figura 1}). O método \textit{getY} retornar o valor da imagem do estado, já o método \textit{produce} retorna um novo estado produzido a partir de dado $x$ passado por parâmetro, necessitando apenas a o deslocamento ao valor do $x$. (Exemplo: Seja $x$ o valor do estado atual, $x+1$ é seu vizinho à direita, $x-1$ é o à esquerda, a mesma regra vale para outros deslocamentos subsequêntes, $x+2...x+n$).
+
+A interface Strategy define os métodos que devem ser implementados para modelar um problema. Esta interface é requerida pelas implementações dos algoritmos de busca \textit{GeneralSearch}, \textit{DepthLimitedSearch}, \textit{IterativeDeepeningSearch}. Três métodos são definidos por \textit{Strategy}, $expand$, $expandable$ e $next$. O método $expand$, recebe como parâmetro um estado e tem como objetivo expandir os filhos deste estado, criando os novos nós da árvore de espaço de estados, mas nada é retornado. O método $expandable$, recebe como parâmetro um estado e retorna um valor booleano, verdadeiro caso o estado atual é expandível, falso, caso contrário. O método $next$ retorna o próximo estado a ser visitado.
+
+\section{Experimentos Realizados}
+
+Os experimentos realizados foram utilizando a ferramentas de testes unitários \textit{JUnit}\footnote{Disponível no sítio: http://junit.sourceforge.net/}. Nesta primeira fase, para validar os algoritmos foram implementados testes unitários, contendo o modelo de um problema para que cada algoritmo tentasse buscar a solução. O computador testado é um \textit{Intel Pentium} 4 2.4GHz com 512MB de memória \textit{RAM}.
+
+O problema modelado foi o dos vasilhames. Trata-se de dois vasilhames, um de quatro litros e outro três, sem medidor, uma torneira para encher os vasilhames de água, além da possibilidade de esvaziá-los. O problema é encher o primeiro vasilhame de quatro litros exatamente com dois litros, utilizando apenas as operações de encher e esvaziar os vasilhames e trocar o conteúdo entre eles (Exemplo: Encher primeiro vasilhame com a água do segundo).
+
+O modelo da solução do problema foi modelado em uma implementação da interface \textit{Strategy}. Os algoritmos testados foram a Busca em Largura (\textit{GeneralSearch} com expansão utilização filas), Busca em Profundidade Limitada (\textit{GeneralSearch} com expansão utilização pilhas), Busca em Largura com aprofundamento iterativo (\textit{IterativeDeepeningSearch}) e Busca em Largura Limitada. Os resultados segue na tabela abaixo:
+
+\begin{table}[!th]
+ \begin{center}
+  \caption{Resultados dos experimentos com o problema dos vasilhames}
+  \begin{tabular}{|l|r|r|r|} % alinhamento à esquerda centrado e alinhado a direita
+    \hline
+        Algoritmo 					& Limite  	& Solução? 	& Tempo (ms) 	\\ \hline
+        Busca em Largura 				& - 	  	& Sim 		& 2		\\ \hline
+        Busca em Largura Limitada 			& 9 		& Sim		& 2		\\ \hline
+	Busca em Largura Limitada 			& 5 		& Não		& 4		\\ \hline
+        Busca em Largura com aprofundamento iterativo	& 15 		& Sim		& 145		\\ \hline
+        Busca em Profundidade Limitada			& 7000 		& Não		& 524		\\ \hline
+  \end{tabular}
+  \label{table:tabela1}
+ \end{center}
+\end{table}
+
+Para testar o algoritmo \textit{Simulated Annealing}, foi implementado um modelo de estado (extendendo a classe abstrata \textit{SimulatedAnnealingState}), com uma função arbitrária (1) para obter a imagem ($y$) do estado $x$. 
+
+\begin{equation}
+ f(x) = ((x+50)^3/100+1000*cos(x) 
+\end{equation} 
+
+O valor estado inicial escolhido foi 20, com temperatura reduzindo linearmente (decrementando de 1) com valor inicial em 500. Em 10 milisegundos o \textit{Simulated Annealing} encontrou o estado $(x, y) = (-147, -77246)$ como melhor.
+
+\section{Considerações Finais}
+\label{sec:conclusao}
+
+A Inteligência Artificial fornece ferramentas e técnicas que auxiliam na resolução de vários problemas reais. Os trabalhos realizados até agora não interagem com 
+
+% \bibliographystyle{sbc}
+\bibliographystyle{apalike}
+\bibliography{ia}
+
+\end{document}

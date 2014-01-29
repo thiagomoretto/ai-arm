@@ -1,0 +1,230 @@
+\documentclass[12pt]{article}
+
+\usepackage[brazil]{babel}
+\usepackage{sbc-template}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx,url}
+\usepackage[latin1]{inputenc}  
+% \usepackage{vaucanson}
+% \usepackage{algorithm}
+% \usepackage{algorithmic}
+% \usepackage{pstricks}
+% \include{definicoes}
+
+\sloppy
+
+\title{Simulador de Bra�o Rob�tico guiado por algoritmos da Intelig�ncia Artificial}
+
+\author{Thiago Galves Moretto\inst{1}}
+
+\address{CCET - Centro de Ci�ncias Exatas e da Terra\\
+         Universidade Cat�lica Dom Bosco \\
+         Av. Tamandar�, 6000, Jardim Semin�rio \\
+         79117-900 Campo Grande, MS
+        \email{thiago@moretto.eng.br}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{resumo}
+% Ultima parte a ser feita.
+Este trabalho aborda o desenvolvimento, testes e resultados de um simulador de bra�o rob�tico guiado at� um alvo utilizando algoritmos de Intelig�ncia Artificial. Avaliamos a efici�ncia de v�rios algoritmos de busca e discutimos os resultados.
+\end{resumo}
+
+\section{Introdu��o}
+% Introdu��o "lot of citations"
+Simular computacionalmente a capacidade humana de resolver problemas � a �rea de pesquisa denominada Intelig�ncia Artificial. O inicio do desenvolvimento desta �rea surgiu logo ap�s a Segunda Guerra Mundial atrav�s do artigo \textit{Computing Machinery and Intelligence} de Alan Turing \cite{turing1950}. Desde ent�o as pesquisas feitas na �rea s�o utilizadas e outras, como por exemplo, em Jogos\cite{funge2004}, em Vis�o Computacional\cite{forsyth2002} e Rob�tica\cite{ferguson2005}.
+
+% Expor problema
+% No problems.
+
+% Expor solu��o
+Este trabalho apresenta uma implementa��o de um simulador de bra�o rob�tico utilizando algoritmos desenvolvidos pela �rea de Intelig�ncia Artificial. O problema para ser solucionado � realizar movimentos com o bra�o rob�tico para que este atinga um pr�-determinado alvo e um espa�o virtual 3D. Os algoritmos propostos t�m que encontrar uma sequ�ncia de movimentos que leve at� esta meta. % Ciclo.
+
+% Organiz�o trolha.
+A organiza��o deste texto esta da seguinte forma, na se��o 2 abordamos os trabalhos correlatos. Na se��o 3 resenhamos uma pequena introdu��o dos algoritmos utilizados. Na se��o 4 apresentamos detalhes da implementa��o nesta fase do trabalho. Na se��o 5 apresentamos experimentos realizados e por fim na se��o 6 temos as considera��es finais.
+
+% Credo!! ta feio demais
+% O ser humano, desde quando nasce, tende a perceber e buscar informa��es de tudo o que esta a sua volta. Objetos, pessoas, tudo o que existe, � necess�rio criar um conhecimento sobre aquilo, � atrav�s da intera��o com o ambiente que isto � feito. Mas antes de tudo, o c�rebro tem que desenvolver a capacidade de executar determinadas a��es sobre o corpo, como deslocar o bra�o, movimentar as pernas, desenvolver o equil�brio, entre outras a��es que s�o desenvolvidas ao longo do tempo e da exposi��o � experi�ncias.
+
+% LIXO
+% O c�rebro humano � uma m�quina capaz de aprender quando exposto a desafios. Esta capacidade faz com que quando exposto a v�rios obst�culos e dificuldades, o c�rebro, consiga, atr�ves de tentantivas, erros, alcan�ar seus objetivos, exercitando o aprendizado e fazendo com que na pr�xima tarefa semelhante ele cometa menos erros poss�veis. � neste contexto, que v�rias pesquisas s�o feitas, para que, seja poss�vel construir algorimos, t�cnicas e m�todos capazes de encarar os desafios do mundo real e resolv�-los com mais efic�cia poss�vel.
+
+% Talves da pra aproveitar algo. Mas � lixo.
+% Este trabalho, tem como objetivo, a implementa��o de algoritmos de Intelig�ncia Artificial, para encontrar uma sequ�ncia de movimentos de um bra�o rob�tico na tentativa de buscar um alvo no ambiente em que se encontra. Na primeira fase do trabalho, foram implementadas buscas exaustivas e uma local. Abordaremos cada uma delas mais adiante. Em seguida, foi reaproveitado um c�digo\footnote{Dispon�vel em: http://www.frontiernet.net/~imaging/sourcecode/Human.java}, utilizando \textit{Java 3D}\footnote{Dispon�vel em: http://java.sun.com/products/java-media/3D/}, que simula um homem no ambiente tri-dimensional.
+
+
+\section{Trabalhos Correlatos}
+
+% blabla meio feio.
+Os trabalhos a seguir foram escolhidos por utilizarem algoritmos avaliados neste trabalho.
+
+Em \cite{yun06wsc}, � proposto uma t�cnica de otimiza��o estoc�stica, utilizando tr�s m�todos, entre eles, \textit{Simulated Annealing}, para otimizar o tr�fego sobre sem�foros em um corredor urbano. \footnote{Dispon�vel no site: http://mctrans.ce.ufl.edu/featured/TSIS/Version5/corsim.htm}.
+
+Em \cite{vaziri05wsc}, os autores prop�em uma forma de alocar e agendar recursos e tarefas (de dura��o incerta) em v�rios projetos de maneira eficiente. Para isto, utilizam o m�todo \textit{Simulated Annealing} para achar a melhor forma de alocar os recursos, e que estes n�o impen�am, o m�nimo poss�vel, de que outras tarefas sejam executadas por outros projetos, ou seja, busca um melhor equil�brio entre projetos, recursos e tarefas.
+
+Uma varia��o do algoritmo \textit{Hill Climbing} e o m�todo \textit{Simulated Annealing}, entre outros, � apresentada em \cite{bowei04www} para otimizar configura��es de servidores de aplica��es. Este trabalho apresente a implementa��o destes algoritmos para encontrar uma melhor configura��o dos v�rios par�metros que os servidores de aplica��es possuem, por exemplo, mem�ria, \textit{pool} de \textit{Threads}, tamanho de \textit{cache}, \textit{timeouts}, etc.
+
+Em \cite{korf95acm}, Korf exp�e o problema do espa�o em mem�ria utilizado em m�todos para satisfa��o de restri��es e otimiza��o em jogos por busca heur�stica e espa�o de estados. Explica os problemas dos m�todos \textit{A*}, da busca em largura e da busca em profundidade, prop�e ent�o como solu��o a utiliza��o do \textit{Iterative Deepening Search} (Busca por aprofundamento iterativo).
+
+\section{Algoritmos de busca}
+
+Nesta se��o apresentaremos uma breve introdu��o dos algoritmos de busca implementados nesta fase do trabalho. Estes s�o divididos em tr�s tipos, buscas exaustivas, buscas heur�sticas e buscas locais.
+
+% Arrumar
+\subsection{Busca em Largura}
+
+A busca em largura consiste em uma busca em �rvore. Inicialmente visitando a ra�z e todos os seus vizinhos. Ap�s isto, o mesmo processo � feito com os vizinhos, suscetivamente.
+
+A busca em largura n�o utiliza nenhuma heur�stica para definir o melhor caminho a seguir at� a sua meta, por isto � chamada de busca exaustiva, j� que visita todos os n�s poss�veis at� encontrar a solu��o.
+
+A sua varia��o com limita��o, Busca em Largura Limitada, surge para limitar a busca e retonar falha caso n�o encontre a solu��o dentro desse limite.
+
+\subsection{Busca em Profundidade e Aprofundamento Iterativo}
+
+A Busca em Profundidade explora todo um ramo de uma �rvore at� retornar e explorar o ramo vizinho. Uma vantagem deste m�todo � encontrar o menor caminho do n� inicial at� o n� final mais pr�ximo. Entretanto, n�o garante a solu��o mais pr�xima. Em problemas onde h� um grande n�mero de solu��es ou se a maioria dos caminhos puder levar � uma soluc�o este m�todo pode ser eficiente.
+
+A busca por aprofundamento iterativo � basicamente a busca em profundidade com dois mecanismos a mais, um limitador de profundidade e outro que incrementa este limite sempre que toda a �rvore dentro do limite atual � explorada. Uma vantagem desta busca � poder encontrar a melhor solu��o.
+
+% A busca gulosa faz parte do grupo de Buscas Heur�sticas, buscas deste tipo utilizam um mecanismo para auxiliar na decis�o de qual caminho tomar na �rvore de estados. Geralmente s�o utilizados quando se tem um conhecimento sobre o problema e � poss�vel mensurar um valor para cada estado, este valor � obtido pela fun��o heur�stica. % T� p�ssimo.
+
+\subsection{Greedy Search}
+
+% Talvez retirar uma redundancia, por�m esta no caminho.
+\textit{Greedy Search}, ou busca gulosa, � um tipo de busca \textit{best-first}, que refere-se em sempre prosseguir pelo caminho onde uma heur�stica informa ser melhor, desta forma, este algoritmo pode n�o chegar na meta, j� que mesmo com uma heur�stica, as informa��es que esta passa n�o garantem que se chegue � meta \cite{norvig95}. 
+
+\subsection{Beam Search}
+
+A \textit{Beam Search} � uma otimiza��o do algoritmo \textit{best-first}, a diferen�a � que este algoritmo apenas expande os \textit{m} melhores n�s a cada itera��o. Chamado de \textit{beam width}, este valor faz com que sejam visitados apenas �queles n�s que podem oferecer melhores caminhos at� � meta.
+
+\subsection{A-*}
+
+Descrito em 1968 por Peter Hart, Nils Nilsson, e Bertram Raphael\cite{hart1968}, o \textit{A*} � um algoritmo de busca informada em grafo, derivada do \textit{best-first}, que busca o melhor caminho de um n� inicial at� um n� meta. Para ser eficiente � necess�rio uma heur�stica admiss�vel que define atrav�s de um valor qual melhor caminho � seguir, al�m disto, associa ao valor da heur�stica o custo atual do caminho, isto faz com que o algoritmo teste outra alternativas mesmo que a heur�stica informe que h� outro caminho mais pr�ximo da meta.
+
+\subsection{Gradient Descent}
+
+O \textit{Gradient Descent} � uma busca local que tem o objetivo de minizar uma fun��o. Esta busca sempre escolhe o melhor ou o primeiro melhor n� para expandir e n�o apenas
+
+\subsection{\textit{Simulated Annealing} ou T�mpera Simulada}
+
+\textit{Simulated Annealing} � um m�todo de busca estoc�stico an�logo ao processo f�sico de resfriamento gradativo para a produ��o de cristais utilizando o m�nimo de energia poss�vel. O SA tentar evitar os m�nimos locais e tem como objetivo a busca do m�nimo global \cite{carson97simulation}. 
+
+\section{Implementa��o}
+
+A implementa��o do simulador foi feita utilizando a linguagem Java, para aproveitar a plataforma, que d� suporte � utiliza��o do simulador em v�rios sistemas operacionais, e para a utiliza��o da biblioteca \textit{Java 3D}, que disponibiliza uma API de alto-n�vel para a elabora��o de ambientes 3D com suporte a v�rios tipos de objetos, comportamentos, ilumina��o, entre outras caracter�sticas prontas.
+
+A parte gr�fica nesta fase do trabalho � simples, consiste em um menu, que ainda esta em implementa��o, com as op��es de algoritmos a serem utilizados para resolver o problema do deslocamento do bra�o rob�tico, estes algoritmos n�o est�o dispon�veis no menu. H� uma implementa��o em 3D de um homem (tronco, cabe�a e membros superiores), com possibilidade de utilizar o mouse para rotacionar o ambiente.
+
+\begin{figure}
+	\centering
+	\label{fig:1}
+	\includegraphics[scale=0.7]{class_diagram.eps}
+	%\includegraphics[width=14.00cm,height=12.00cm,scale=1,bb=0 0 992 757]{class_diagram.eps}
+	\caption{Diagrama de classes representando o modelo de buscas do simulador}
+\end{figure}
+
+Na \textbf{Figura 1} temos o diagrama de classes que apresenta a modelagem utilizada no simulador. A interface \textit{Search} � implementada pelos algoritmos de busca, que deve, ao t�rmino da busca, retornar o estado final, ou o valor nulo, caso haja um fracasso na busca.
+
+A interface \textit{State} � uma representa��o b�sica de um estado, e de acordo com cada problema ele pode ser extendido ou implementado de qualquer forma, desde que, implemente dois m�todos, o \textit{parent} (Para ser poss�vel realizar o caminho inverso) e o \textit{equals} (para comparar os estados). 
+
+Para o algoritmo \textit{SimulatedAnnealing} o modelo de estado (\textit{State}) � inadequado, � necess�rio que este modelo tenha informa��es relacionadas ao valor do estado (assumindo $x$ como o estado e $y$, o valor deste estado), ou seja, cada estado precisa de um valor, da mesma forma que em uma fun��o $y = f(x)$, cada valor de $x$ deva ter um valor $y$ correspondente - a imagem de $x$ pela fun��o $f$. Para suprir essa necessidade, o modelo \textit{State} foi extendido pela classe abstrata \textit{SimulatedAnnealingState}, que implementa os m�todos descritos pela interface \textit{State} e define dois novos m�todos que devem ser implementados (m�todos abstratos), \textit{getY} e \textit{produce} (a assinatura pode ser vista na \textbf{Figura 1}). O m�todo \textit{getY} retornar o valor da imagem do estado, j� o m�todo \textit{produce} retorna um novo estado produzido a partir de dado $x$ passado por par�metro, necessitando apenas a o deslocamento ao valor do $x$. (Exemplo: Seja $x$ o valor do estado atual, $x+1$ � seu vizinho � direita, $x-1$ � o � esquerda, a mesma regra vale para outros deslocamentos subsequ�ntes, $x+2...x+n$).
+
+A interface Strategy define os m�todos que devem ser implementados para modelar um problema. Esta interface � requerida pelas implementa��es dos algoritmos de busca \textit{GeneralSearch}, \textit{DepthLimitedSearch}, \textit{IterativeDeepeningSearch}. Tr�s m�todos s�o definidos por \textit{Strategy}, $expand$, $expandable$ e $next$. O m�todo $expand$, recebe como par�metro um estado e tem como objetivo expandir os filhos deste estado, criando os novos n�s da �rvore de espa�o de estados, mas nada � retornado. O m�todo $expandable$, recebe como par�metro um estado e retorna um valor booleano, verdadeiro caso o estado atual � expand�vel, falso, caso contr�rio. O m�todo $next$ retorna o pr�ximo estado a ser visitado.
+
+\section{Experimentos Realizados}
+
+Nos experimentos realizados os algoritmos implementados tinham a mesma tarefa, realizar uma seq��ncia movimentos no bra�o fazendo com que a m�o deste bra�o no m�nimo chegasse a um certo limiar perto no alvo (fixo ou em movimento), um objeto circular. Em uma das tarefas o alvo foi coloado em movimento e foi avalido como cada algoritmo se adaptava � nova situa��o, e se conseguir perseguir o alvo at� encontr�-lo no espa�o 3D.
+
+O computador onde foi realizado estes testes foi um \textit{Intel Pentium 4 2.4GHz} com 512MB de mem�ria \textit{RAM}, utilizando a m�quina virtual \textit{Java} vers�o \textit{1.6.0-b105}, e um sistema operacional \textit{GNU/Linux}. A vers�o do \textit{Java 3D} foi a 1.5.0.
+
+\subsection{Teste com alvo fixo}
+
+Nestes testes o alvo foi posicionado em um local fixo no espa�o 3D, dentro do limite de alcan�e do bra�o. A seguir, mostraremos os resultados divido por cada classe de buscas, primeiramente as exaustivas, ap�s as heur�sticas e por fim as locais.
+
+\subsection{Buscas Exaustivas}
+
+As buscas exaustivas n�o utilizam nenhum recursos que auxiliam na busca ao alvo, desta forma, nenhum algoritmo conseguir encontrar o alvo nas circust�ncias propostas. Os resultados s�o mostrados na tabela abaixo.
+
+\begin{table}[!th]
+ \begin{center}
+  \caption{Resultados com as buscas exaustivas}
+  \begin{tabular}{|l|r|r|r|}
+    \hline
+        Algoritmo 						& Limite  	& Solu��o? 					& Tempo (ms) 	\\ \hline
+        Busca em Largura 				& - 	  	& Loop 						& -				\\ \hline
+        Busca em Profundidade Limitada 	& 300 		& N�o						& -			\\ \hline
+		Iterative Deepening				& 10 		& Mem�ria insuficiente		& -			\\ \hline
+  \end{tabular}
+  \label{table:tabela1}
+ \end{center}
+\end{table}
+
+\subsection{Buscas Heur�sticas}
+
+As buscas heur�sticas demostraram boa efici�ncia neste teste. Todos os algoritmos encontraram a meta. Os resultados s�o mostrados na tabela abaixo.
+
+\begin{table}[!th]
+ \begin{center}
+  \caption{Resultados com as buscas heur�sticas}
+  \begin{tabular}{|l|r|r|r|}
+    \hline
+        Algoritmo 						& Profundidade  	& Passos		& Tempo (ms) 	\\ \hline
+        A*	 							& 6 	  			& 18 			& 305			\\ \hline
+        Greedy							& 11 				& 18			& 277			\\ \hline
+		Beam (beam-width = 2)			& 11 				& 12			& 202			\\ \hline
+		Beam (beam-width = 5)			& 11 				& 15			& 369			\\ \hline
+		Beam (beam-width = 8)			& 11 				& 18			& 303			\\ \hline
+  \end{tabular}
+  \label{table:tabela1}
+ \end{center}
+\end{table}
+
+\subsection{Buscas Locais}
+
+As buscas locais tentam otimizar um resultado, desta forma, elas t�m um maior n�mero de passos, por�m se mostraram mais r�pidas e com menor consumo de mem�ria. Todos os algoritmos encontraram o resultado. Com o algoritmo Simulated Annealing foi utilizada uma fun��o de temperatura $T = T - 1$ com $T = 200$ de temperatura inicial. Com o algoritmo Gradient Descent foi limitada para 100 itera��es. Na tabela abaixo os resultados.
+
+\begin{table}[!th]
+ \begin{center}
+  \caption{Resultados com as buscas locais}
+  \begin{tabular}{|l|r|r|r|}
+    \hline
+        Algoritmo & Passos		& Tempo (ms) 	\\ \hline
+        Simulated Annealing	& 200 	  		& 74			\\ \hline
+        Gradient Descent		& 100 	  		& 45			\\ \hline
+        Gradient Steepest Descent	 100 	  		& 42			\\ \hline
+  \end{tabular}
+  \label{table:tabela1}
+ \end{center}
+\end{table}
+
+% Artigo antigo.
+% Nos experimentos realizados foram utilizadas a ferramentas de testes unit�rios \textit{JUnit}\footnote{Dispon�vel no s�tio: http://junit.sourceforge.net/}. Nesta primeira fase, para validar os algoritmos foram implementados testes unit�rios, contendo o modelo de um problema para que cada algoritmo tentasse buscar a solu��o. O computador onde foi realizado os testes � um \textit{Intel Pentium} 4 2.4GHz com 512MB de mem�ria \textit{RAM}.
+
+% O problema modelado foi o dos vasilhames. Trata-se de dois vasilhames, um de quatro litros e outro de tr�s litros, sem medidor, uma torneira para encher os vasilhames de �gua, al�m da possibilidade de esvazi�-los. O problema � encher o primeiro vasilhame de quatro litros exatamente com dois litros, utilizando apenas as opera��es de encher e esvaziar os vasilhames e trocar o conte�do entre eles (Exemplo: Encher primeiro vasilhame com a �gua do segundo).
+
+% A solu��o do problema foi modelado em uma implementa��o da interface \textit{Strategy}. Os algoritmos testados foram a Busca em Largura (\textit{GeneralSearch} com expans�o utilizando filas), Busca em Profundidade Limitada (\textit{GeneralSearch} com expans�o utilizando pilhas), Busca em Largura com aprofundamento iterativo (\textit{IterativeDeepeningSearch}) e Busca em Largura Limitada. Os resultados seguem na tabela abaixo:
+
+
+%\begin{figure}
+%	\centering
+%	\label{fig:2}
+%	\includegraphics[width=15.00cm,height=14.00cm,bb=0 0 300 280]{graph_sa.eps}
+%	\caption{Gr�fico da fun��o e os estados visitados}
+% classes.eps: 300dpi, width=8.40cm, height=6.41cm, bb=0 0 992 757
+%\end{figure}
+
+\section{Considera��es Finais}
+\label{sec:conclusao}
+
+A Intelig�ncia Artificial fornece ferramentas e t�cnicas que auxiliam na resolu��o de v�rios problemas reais. Os algoritmos aqui apresentados resolvendo problemas relativamente simples s�o usados em diversos problemas complexos, como vimos nos trabalhos correlatos. Os mecanismos da Intelig�ncia Artificial podem ser utilizados em v�rias �reas da tecnologia da computa��o.
+
+% Melhorar
+Neste trabalho podemos observar o poder e a sofistica��o das t�cnicas, pois � necess�rio um pequeno ajuste na modelagem dos problemas, para que os algoritmos consigam solucionar os problemas.
+
+% \bibliographystyle{sbc}
+\bibliographystyle{apalike}
+\bibliography{ia}
+
+\end{document}

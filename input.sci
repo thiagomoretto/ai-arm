@@ -1,0 +1,22 @@
+function entra()
+  mostraIteracao(0,g,20,1);
+  mostraIteracao(0,g,19,2);
+  mostraIteracao(0,g,18,3);
+  mostraIteracao(0,g,17,4);
+  mostraIteracao(0,g,16,5);
+  mostraIteracao(0,g,15,6);
+  mostraIteracao(0,g,14,7);
+  mostraIteracao(0,g,14,7);
+  mostraIteracao(0,g,13,8);
+  mostraIteracao(0,g,12,9);
+  mostraIteracao(0,g,11,10);
+  mostraIteracao(0,g,10,11);
+  mostraIteracao(0,g,9,12);
+  mostraIteracao(0,g,8,13);
+  mostraIteracao(0,g,7,14);
+  mostraIteracao(0,g,6,15);
+  mostraIteracao(0,g,5,16);
+  mostraIteracao(0,g,4,17);
+  mostraIteracao(0,g,3,18);
+  mostraIteracao(0,g,2,19);
+endfunction

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<project name="braco" default="build" basedir=".">
+	<description>Braco Róbotico Guiado por IA.</description>
+
+	<property name="project" value="braco" />
+	<property name="jar" value="braco-0.5.jar" />
+	<property name="version" value="0.5" />
+	<property name="main" value="ia.gui3d.Toolbox" />
+
+	<property name="src" location="src" />
+	<property name="test" location="test" />
+	<property name="build" location="build" />
+	<property name="doc" location="doc" />
+	<property name="lib" location="lib" />
+
+	<path id="classpath">
+		<pathelement location="lib/junit-4.0.jar" />
+	</path>
+
+	<property name="manifest" value="MANIFEST.MF" />
+
+	<target name="manifest">
+		<manifest file="${manifest}">
+			<attribute name="Built-By" value="${user.name}"/>
+			<attribute name="Main-class" value="${main}"/>
+		</manifest>
+	</target>
+
+	<target name="init">
+		<tstamp />
+		<mkdir dir="${src}" />
+		<mkdir dir="${test}" />
+		<mkdir dir="${build}" />
+		<mkdir dir="${doc}" />
+		<mkdir dir="${lib}" />
+	</target>
+
+	<target name="compile" depends="init" description="Compile sources">
+		<echo>Compiling main source files...</echo>
+		<javac
+			srcdir="${src}"
+			destdir="${build}"
+			source="1.5"
+			nowarn="on"
+			debug="true"
+			debuglevel="lines,source,vars"
+			classpathref="classpath"
+			/>
+		<echo>Compiling test source files...</echo>
+		<!--
+		<javac
+			srcdir="${test}"
+			destdir="${build}"
+			source="1.5"
+			nowarn="on"
+			debug="true"
+			debuglevel="lines,source,vars"
+			classpathref="classpath"
+		/>
+		-->
+	</target>
+
+	<target name="package" depends="compile" description="Make package">
+		<jar 	jarfile="${lib}/${jar}"
+				basedir="${build}"  />
+	</target>
+
+	<target name="build" depends="package" description="Build project" />
+
+	<target name="clean" description="Clean" >
+		<delete dir="${build}"/>
+	</target>
+
+	<target name="run" description="Run project" >
+		<java 	jar="${dist}/${jar}"
+				fork="true"
+				failonerror="true"
+				classpathref="classpath" />
+	</target>
+</project>
